@@ -1,8 +1,11 @@
 /**********************************************************************/
-/***************    Author         : Omar Ashraf       ****************/
-/***************    Version        : 0.1               ****************/
-/***************    File Name      : RCC_program.c     ****************/
+/***************    @file           : RCC_program.c    ****************/
+/***************    @version        : 0.1              ****************/
+/***************    @author         : Omar Ashraf      ****************/
 /**********************************************************************/
+
+
+/***********************< Includes Section Start **********************/
 
 /********************************< LIB ********************************/
 #include "BIT_MATH.h"
@@ -12,7 +15,9 @@
 #include "RCC_private.h"
 #include "RCC_config.h"
 
-/**********************< Function Implementations **********************/
+/************************< Includes Section End ************************/
+
+/*******************< Function Implementations Start *******************/
 
 Std_Returntype Mcal_Rcc_InitSysCLock(void)
 {
@@ -20,9 +25,9 @@ Std_Returntype Mcal_Rcc_InitSysCLock(void)
 // Enabling is Done Using RCC_CR
 // Selecting is Done Using RCC_CFGR
 
-// HSE Will Be The System Clock
+/**<HSE Will Be The System Clock*/
 #if RCC_SYSCLK == RCC_HSE
-// Which External Clock Will Be The System Clock
+/**<Which External Clock Will Be The System Clock*/
 #if RCC_CLK_BYPASS == RCC_RC_CLK
     SET_BIT(RCC_CR, RCC_CR_HSEBYP); // Choose RC as System Clock
 
@@ -38,41 +43,40 @@ Std_Returntype Mcal_Rcc_InitSysCLock(void)
     SET_BIT(RCC_CR, RCC_CR_HSEON);
 
     /**<Wait Until Clock Be Stable*/
-    while (!GET_BIT(RCC_CR, RCC_CR_HSERDY))
-        ; // While HSERDY is 0 We will Wait
+    while (!GET_BIT(RCC_CR, RCC_CR_HSERDY));
 
     /**<Select The HSE to be the system clock*/
-    RCC_CFGR = 0x00000001;
+    SET_BIT(RCC_CFGR, RCC_CFGR_SW0);
 
     Local_FunctionStatus = E_OK;
 
-// HSI Will Be The System Clock
+/**<HSI Will Be The System Clock*/
 #elif RCC_SYSCLK == RCC_HSI
 
     /**<Enable HSI*/
     SET_BIT(RCC_CR, RCC_CR_HSION);
 
     /**<Wait Until Clock Be Stable*/
-    while (!GET_BIT(RCC_CR, RCC_CR_HSIRDY))
-        ; // While HSIRDY is 0 We will Wait
+    while (!GET_BIT(RCC_CR, RCC_CR_HSIRDY));
 
     /**<Select The HSI to be the system clock*/
-    RCC_CFGR = 0x00000000; // Note that this is already The default
+    CLR_BIT(RCC_CFGR, RCC_CFGR_SW0); /**<Note that this is already The default*/
+    CLR_BIT(RCC_CFGR, RCC_CFGR_SW0); /**<Note that this is already The default*/
 
     Local_FunctionStatus = E_OK;
 
-// PLL Will Be The System Clock
+
+/**<PLL Will Be The System Clock*/
 #elif RCC_SYSCLK == RCC_PLL
 
     /**<Enable PLL*/
     SET_BIT(RCC_CR, RCC_CR_PLLON);
 
     /**<Wait Until Clock Be Stable*/
-    while (!GET_BIT(RCC_CR, RCC_CR_PLLRDY))
-        ; // While PLLRDY is 0 We will Wait
+    while (!GET_BIT(RCC_CR, RCC_CR_PLLRDY));
 
     /**<Select The PLL to be the system clock*/
-    RCC_CFGR = 0x00000010;
+    SET_BIT(RCC_CFGR, RCC_CFGR_SW1);
 
     Local_FunctionStatus = E_OK;
 
@@ -86,7 +90,7 @@ Std_Returntype Mcal_Rcc_InitSysCLock(void)
     return Local_FunctionStatus;
 }
 
-Std_Returntype Mcal_Rcc_EnablePeripheral(u8 Copy_PeripheralId, u8 Copy_BusId)
+Std_Returntype Mcal_Rcc_EnablePeripheral(u8 Copy_BusId, u8 Copy_PeripheralId)
 {
     Std_Returntype Local_FunctionStatus = E_NOT_OK;
     switch (Copy_BusId)
@@ -116,7 +120,7 @@ Std_Returntype Mcal_Rcc_EnablePeripheral(u8 Copy_PeripheralId, u8 Copy_BusId)
     return Local_FunctionStatus;
 }
 
-Std_Returntype Mcal_Rcc_DisablePeripheral(u8 Copy_PeripheralId, u8 Copy_BusId)
+Std_Returntype Mcal_Rcc_DisablePeripheral(u8 Copy_BusId, u8 Copy_PeripheralId)
 {
     Std_Returntype Local_FunctionStatus = E_NOT_OK;
     switch (Copy_BusId)
@@ -145,4 +149,5 @@ Std_Returntype Mcal_Rcc_DisablePeripheral(u8 Copy_PeripheralId, u8 Copy_BusId)
     }
     return Local_FunctionStatus;
 }
-/******************< End of Function Implementations *******************/
+
+/********************< Function Implementations End ********************/

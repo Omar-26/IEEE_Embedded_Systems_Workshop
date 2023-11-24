@@ -1,7 +1,7 @@
 /**********************************************************************/
-/***************    Author         : Omar Ashraf       ****************/
-/***************    Version        : 0.1               ****************/
-/***************    File Name      : RCC_private.h     ****************/
+/***************    @file           : RCC_private.h    ****************/
+/***************    @version        : 0.1              ****************/
+/***************    @author         : Omar Ashraf      ****************/
 /**********************************************************************/
 #ifndef RCC_PRIVATE_H_
 #define RCC_PRIVATE_H_
@@ -95,26 +95,35 @@
  */
 
 #define RCC_CR_HSION        0   /**< Internal High-Speed Clock Enable */
-#define RCC_CR_HSIRDY       1  /**< Internal High-Speed Clock Ready */
-// #define RCC_CR_HSICAL       8  /**< Internal High-Speed Clock Calibration */
+#define RCC_CR_HSIRDY       1   /**< Internal High-Speed Clock Ready */
+#define RCC_CR_HSICAL       8   /**< Internal High-Speed Clock Calibration */
 #define RCC_CR_HSEON        16  /**< External High-Speed Clock Enable */
-#define RCC_CR_HSERDY       17 /**< External High-Speed Clock Ready */
-#define RCC_CR_HSEBYP       18 /**< External High-Speed Clock Bypass */
-// #define RCC_CR_HSEPRE       19 /**< External High-Speed Clock Pre-scaler */
+#define RCC_CR_HSERDY       17  /**< External High-Speed Clock Ready */
+#define RCC_CR_HSEBYP       18  /**< External High-Speed Clock Bypass */
 #define RCC_CR_CSSON        19  /**< Clock Security System Enable */
 #define RCC_CR_PLLON        24  /**< PLL Enable */
-#define RCC_CR_PLLRDY       25 /**< PLL Ready */
+#define RCC_CR_PLLRDY       25  /**< PLL Ready */
 
 /** @} */ // end of RCC_CR_Bit_Definitions
+
+/**
+ * @defgroup RCC_CFGR_Bit_Definitions RCC Clock configuration register (RCC_CFGR) Bit Definitions
+ * @{
+ */
+
+#define RCC_CFGR_SW0        0   /**< System Clock Switch BIT0 */
+#define RCC_CFGR_SW1        1   /**< System Clock Switch BIT0 */
+
+/** @} */ // end of RCC_CFGR_Bit_Definitions
 
 /**
  * @defgroup RCC_Clock_Source RCC Clock Source Macros
  * @{
  */
 
-#define RCC_HSI             0 /**< High-Speed Internal Clock Source (HSI) */
-#define RCC_HSE             1 /**< High-Speed External Clock Source (HSE) */
-#define RCC_PLL             2 /**< Phase-Locked Loop Clock Source (PLL) */
+#define RCC_HSI             0   /**< High-Speed Internal Clock Source (HSI) */
+#define RCC_HSE             1   /**< High-Speed External Clock Source (HSE) */
+#define RCC_PLL             2   /**< Phase-Locked Loop Clock Source (PLL) */
 
 /** @} */ // end of RCC_Clock_Source
 
@@ -123,8 +132,8 @@
  * @{
  */
 
-#define RCC_CRYSTAL_CLK     0 /**< Crystal Oscillator Clock Type */
-#define RCC_RC_CLK          1      /**< RC Oscillator Clock Type */
+#define RCC_CRYSTAL_CLK     0   /**< Crystal Oscillator Clock Type */
+#define RCC_RC_CLK          1   /**< RC Oscillator Clock Type */
 
 /** @} */ // end of RCC_Clock_Type
 

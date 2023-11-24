@@ -1,7 +1,7 @@
 /**********************************************************************/
-/***************    Author         : Omar Ashraf       ****************/
-/***************    Version        : 0.1               ****************/
-/***************    File Name      : RCC_config.h      ****************/
+/***************    @file           : RCC_config.h     ****************/
+/***************    @version        : 0.1              ****************/
+/***************    @author         : Omar Ashraf      ****************/
 /**********************************************************************/
 #ifndef RCC_CONFIG_H_
 #define RCC_CONFIG_H_
@@ -27,7 +27,7 @@
  *                  a higher frequency output. PLL provides flexibility in tuning the clock frequency,
  *                  making it suitable for applications with specific performance requirements.
  */
-#define RCC_SYSCLK              RCC_HSE
+#define RCC_SYSCLK RCC_HSE
 
 /**
  * @brief Configure the clock type for RCC_SYSCLK when using RCC_HSE.
@@ -37,7 +37,7 @@
  */
 #if RCC_SYSCLK == RCC_HSE
 
-#define RCC_CLK_BYPASS          RCC_CRYSTAL_CLK
+#define RCC_CLK_BYPASS RCC_CRYSTAL_CLK
 
 #endif /*RCC_SYSCLK == RCC_HSE*/
 
