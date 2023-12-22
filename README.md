@@ -2,7 +2,7 @@
 
 ## What's included in this repository?
 
-This repository will contain my Work from the Embedded Systems Workshops on _**Microcontroller Architecture and Interfacing with ARM Cortex**_. that was created by the IEEE. In these workshops, I explored the fundamental concepts of microcontroller architecture and learned how to interface with ARM Cortex-based microcontrollers. The workshops covered various topics to provide me with a comprehensive understanding of embedded systems.
+>This repository will contain my Work from the Embedded Systems Workshops on _**Microcontroller Architecture and Interfacing with ARM Cortex**_. that was created by the IEEE. In these workshops, I explored the fundamental concepts of microcontroller architecture and learned how to interface with ARM Cortex-based microcontrollers. The workshops covered various topics to provide me with a comprehensive understanding of embedded systems.
 
 ## Workshop Overview
 
@@ -24,18 +24,20 @@ This repository will contain my Work from the Embedded Systems Workshops on _**M
 | 12     | SPI and TFT                               | Learn about SPI basics, build an SPI driver, and understand pixel color modes. Explore different display types, including interfacing TFT displays and working with bit map images.|
 | 13     | DMA                                       | Explore direct memory access (DMA) definitions and basics. Understand DMA authorities against the processor and build a DMA driver. |
 
-
 ### Workshop Playlist
+
 [IEEE - Embedded Systems Workshop](https://youtube.com/playlist?list=PLyybLGjovkASRFFnpFt9X-gI0Pj6YKqJK&si=4Btsg5MCuFBeb-Ue)
 
 ### Workshop Drive
+
 Access additional workshop materials, slides, and resources on Google Drive:
 [Workshop Google Drive](https://drive.google.com/drive/folders/1nGR1J9SzmXIpPO03m8i160BUqqdw5mGg?usp=sharing)
 
 ## Project Proposal
+>
 > _**PWM Drawer with Real-Time Display on Graphical LCD**_
 
-### Project Overview:
+### Project Overview
 
 The PWM Drawer project aims to develop a real-time PWM signal measurement and visualization tool. The system will capture PWM signals using hardware input capture, calculate the PWM frequency and duty cycle, and display the waveform in real time on a graphical LCD. This project will provide valuable insights into PWM signals' characteristics and allow users to observe and analyze PWM waveforms quickly and accurately.
 
