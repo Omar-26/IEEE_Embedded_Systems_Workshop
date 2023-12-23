@@ -1,4 +1,4 @@
-# IEEE Embedded Systems Workshops
+# IEEE Embedded Systems Workshop
 
 ## What's included in this repository?
 
